@@ -2,9 +2,8 @@ import React from "react";
 import firebase from "../firebase";
 import AuthContext from "../context/auth";
 import { Redirect } from "react-router-dom";
-
 import "./style/login.css";
-import Background from "./image/yellowbg2.png";
+import Background from "./image/bluebg2.png";
 
 const bgStyle = {
   height: "100%",

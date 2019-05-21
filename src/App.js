@@ -7,6 +7,7 @@ import AuthContext from "./context/auth";
 import Header from "./component/header";
 import Signup from "./container/Signup";
 import Login from "./container/Login";
+import Logout from "./component/logout";
 import Home from "./component/home";
 
 class App extends Component {
@@ -43,7 +44,7 @@ class App extends Component {
             <Route path="/" exact component={Home} />
             <Route path="/login" exact component={Login} />
             <Route path="/signup" exact component={Signup} />
-            {/* <Route path="/logout" exact component={Logout} /> */}
+            <Route path="/logout" exact component={Logout} />
             {/* <Route path="/search" exact component={Search} /> */}
             {/* <Route path="/myfollower" exact component={Follower} /> */}
             {/* <Route path="/following" exact component={Following} /> */}
