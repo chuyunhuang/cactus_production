@@ -1,20 +1,20 @@
 import React from "react";
 import AuthContext from "../context/auth";
-import { Link } from "react-router-dom";
-
 import "./style/home.css";
-
-import ExploreIcon from "./image/explore.png";
-import NotificationIcon from "./image/notification.png";
-import MypageIcon from "./image/mypage.png";
-import EditIcon from "./image/edit.png";
-import FollowerIcon from "./image/follower.png";
-import FollowingIcon from "./image/following.png";
+//components
+import SideNavBar from "./sideNavbar";
+import MasonryLayout from "./mansory";
 
 class Home extends React.Component {
   state = {
     userId: "",
-    token: ""
+    token: "",
+    arrayofpostimage: [
+      "https://firebasestorage.googleapis.com/v0/b/cactus-338da.appspot.com/o/cuteplants4.jpg?alt=media&token=fdc9c95a-03d4-467a-8ab7-478d85f2b1b9",
+      "https://firebasestorage.googleapis.com/v0/b/cactus-338da.appspot.com/o/cuteplants4.jpg?alt=media&token=fdc9c95a-03d4-467a-8ab7-478d85f2b1b9",
+      "https://firebasestorage.googleapis.com/v0/b/cactus-338da.appspot.com/o/cuteplants4.jpg?alt=media&token=fdc9c95a-03d4-467a-8ab7-478d85f2b1b9",
+      "https://firebasestorage.googleapis.com/v0/b/cactus-338da.appspot.com/o/cuteplants4.jpg?alt=media&token=fdc9c95a-03d4-467a-8ab7-478d85f2b1b9"
+    ]
   };
 
   // getFirebaseIdToken = () => {
@@ -33,103 +33,24 @@ class Home extends React.Component {
             return (
               <>
                 <div className="homepage-wrapper">
-                  <div className="homepage-msg">Welcome Back!</div>
-                  <div className="user">{user.email}</div>
-                  {/* <div className="user">{user.uid}</div> */}
-                </div>
+                  <div className="sideNav-wrapper">
+                    <SideNavBar />
+                  </div>
+                  <div className="post-wrapper">
+                    <MasonryLayout columns={3} gap={25}>
+                      {[...Array(6).keys()].map(key => {
+                        const height = 200 + Math.ceil(Math.random() * 300);
 
-                <div className="userFunction-wrapper">
-                  <div className="single">
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      className="userFunction"
-                      to="/newsfeed"
-                    >
-                      Explore Newsfeed
-                      <div className="single-img">
-                        <img
-                          src={ExploreIcon}
-                          alt="icon"
-                          className="img-logo"
-                        />
-                      </div>
-                    </Link>
-                  </div>
-
-                  <div className="single">
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      className="userFunction"
-                      to="/mypage"
-                    >
-                      View My Page
-                      <div className="single-img">
-                        <img src={MypageIcon} alt="icon" className="img-logo" />
-                      </div>
-                    </Link>
-                  </div>
-
-                  <div className="single">
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      className="userFunction"
-                      to="/editprofile"
-                    >
-                      Edit My Profile
-                      <div className="single-img">
-                        <img src={EditIcon} alt="icon" className="img-logo" />{" "}
-                      </div>
-                    </Link>
-                  </div>
-
-                  <div className="single">
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      className="userFunction"
-                      to="/createpost"
-                    >
-                      Create New Post
-                      <div className="single-img">
-                        <img
-                          src={NotificationIcon}
-                          alt="icon"
-                          className="img-logo"
-                        />
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="single">
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      className="userFunction"
-                      to="/myfollower"
-                    >
-                      My Followers
-                      <div className="single-img">
-                        <img
-                          src={FollowerIcon}
-                          alt="icon"
-                          className="img-logo"
-                        />{" "}
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="single">
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      className="userFunction"
-                      to="/following"
-                    >
-                      {" "}
-                      My Followings
-                      <div className="single-img">
-                        <img
-                          src={FollowingIcon}
-                          alt="icon"
-                          className="img-logo"
-                        />{" "}
-                      </div>
-                    </Link>
+                        return (
+                          <div
+                            style={{
+                              height: `${height}px`,
+                              border: "1px solid black"
+                            }}
+                          />
+                        );
+                      })}
+                    </MasonryLayout>
                   </div>
                 </div>
               </>

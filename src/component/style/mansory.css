@@ -1,0 +1,6 @@
+body > div > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #efefef;
+}
